@@ -22,7 +22,6 @@ public class telaTeste extends JFrame {
 	private JPanel contentPane;
 	private JTextField textIdCarro;
 	private JTextField textModelo;
-	private JTable tableCarros;
 	private CarroDAO carrodao = CarroDAO.getInstancia();
 
 	/**
@@ -62,6 +61,8 @@ public class telaTeste extends JFrame {
 		textIdCarro.setBounds(66, 19, 86, 20);
 		contentPane.add(textIdCarro);
 		textIdCarro.setColumns(10);
+		
+		
 
 		JLabel lblModelo = new JLabel("Modelo:");
 		lblModelo.setBounds(10, 57, 46, 14);
@@ -80,21 +81,12 @@ public class telaTeste extends JFrame {
 				carro.setIdCarro(id);
 				carro.setModeloCarro(modelo);
 				carrodao.inserir(carro);
+
+				
 			}
 		});
 		btnNewButton.setBounds(10, 85, 142, 23);
 		contentPane.add(btnNewButton);
-
-		tableCarros = new JTable();
-		tableCarros.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "Id", "Modelo" }) {
-			Class[] columnTypes = new Class[] { Integer.class, String.class };
-
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-		});
-		tableCarros.setBounds(10, 130, 600, 237);
-		contentPane.add(tableCarros);
 		
 	}
 }

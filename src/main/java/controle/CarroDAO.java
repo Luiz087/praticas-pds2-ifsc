@@ -75,7 +75,7 @@ public class CarroDAO {
 		// Abrir a conexão com o banco
 		Connection con = c.conectar();
 
-		String query = "INSERT INTO carro " + "(id_carro, modelo_carro) " + "VALUES (?, ?)";
+		String query = "INSERT INTO carros " + "(id_carro, modelo_carro) " + "VALUES (?, ?)";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(query);
