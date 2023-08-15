@@ -10,6 +10,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class telaTeste extends JFrame {
 
@@ -65,6 +67,11 @@ public class telaTeste extends JFrame {
 		contentPane.add(textModelo);
 		
 		JButton btnNewButton = new JButton("INSERIR");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Integer id = Integer.valueOf(textIdCarro.getText());
+			}
+		});
 		btnNewButton.setBounds(10, 85, 142, 23);
 		contentPane.add(btnNewButton);
 		
