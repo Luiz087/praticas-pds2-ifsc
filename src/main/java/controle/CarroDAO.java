@@ -11,6 +11,15 @@ import com.mysql.cj.xdevapi.PreparableStatement;
 import modelo.Carro;
 
 public class CarroDAO {
+	
+	private static CarroDAO instancia;
+	
+	public static CarroDAO getInstancia() {
+		if (instancia == null) {
+			instancia = new CarroDAO();
+		}
+		return instancia;
+	}
 
 	/**
 	 * Metodo que recebe um carro
@@ -52,6 +61,8 @@ public class CarroDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		c.fecharConexao();
 		
 		return carros;
 	}
