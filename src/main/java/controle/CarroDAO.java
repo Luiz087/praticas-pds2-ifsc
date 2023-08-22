@@ -60,9 +60,10 @@ public class CarroDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			// Fecha a conexão
+			c.fecharConexao();
 		}
-		
-		c.fecharConexao();
 		
 		return carros;
 	}
@@ -86,15 +87,15 @@ public class CarroDAO {
 
 			// Consolidar a execução do comando no banco
 			ps.executeUpdate();
-
-			// Fecha a conexão
-			c.fecharConexao();
-
+			
 			return true;
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			// Fecha a conexão
+			c.fecharConexao();
 		}
 
 		return false;
@@ -111,13 +112,14 @@ public class CarroDAO {
 			ps.setInt(1, carro.getIdCarro());
 			
 			ps.executeUpdate();
-			
-			c.fecharConexao();
-			
+						
 			return true;
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			// Fecha a conexão
+			c.fecharConexao();
 		}
 		
 		return false;
@@ -135,13 +137,14 @@ public class CarroDAO {
 			ps.setInt(2, carro.getIdCarro());
 			
 			ps.executeUpdate();
-			
-			c.fecharConexao();
-			
+						
 			return true;
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			// Fecha a conexão
+			c.fecharConexao();
 		}
 		
 		return false;
