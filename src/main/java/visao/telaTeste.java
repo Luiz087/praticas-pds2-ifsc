@@ -73,8 +73,8 @@ public class telaTeste extends JFrame {
 		textModelo.setBounds(66, 54, 86, 20);
 		contentPane.add(textModelo);
 
-		JButton btnNewButton = new JButton("INSERIR");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnInserir = new JButton("INSERIR");
+		btnInserir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Integer id = Integer.valueOf(textIdCarro.getText());
 				String modelo = textModelo.getText();
@@ -85,8 +85,34 @@ public class telaTeste extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(10, 85, 142, 23);
-		contentPane.add(btnNewButton);
+		btnInserir.setBounds(10, 85, 142, 23);
+		contentPane.add(btnInserir);
+		
+		JButton btnAtualizar = new JButton("ATUALIZAR");
+		btnAtualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Integer id = Integer.valueOf(textIdCarro.getText());
+				String modelo = textModelo.getText();
+				carro.setIdCarro(id);
+				carro.setModeloCarro(modelo);
+				carrodao.atualizar(carro);
+			}
+		});
+		btnAtualizar.setBounds(10, 119, 142, 23);
+		contentPane.add(btnAtualizar);
+		
+		JButton btnDeletar = new JButton("DELETAR");
+		btnDeletar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Integer id = Integer.valueOf(textIdCarro.getText());
+				String modelo = textModelo.getText();
+				carro.setIdCarro(id);
+				carro.setModeloCarro(modelo);
+				carrodao.excluir(carro);
+			}
+		});
+		btnDeletar.setBounds(10, 153, 142, 23);
+		contentPane.add(btnDeletar);
 		
 	}
 }

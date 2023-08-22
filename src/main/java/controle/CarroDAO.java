@@ -100,4 +100,50 @@ public class CarroDAO {
 		return false;
 	}
 
+	public boolean excluir(Carro carro) {
+		Conexao c = Conexao.getInstancia();
+		Connection con = c.conectar();
+		
+		String query = "DELTE FROM carros WHERE id_carro = ?";
+		
+		try {
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setInt(1, carro.getIdCarro());
+			
+			ps.executeUpdate();
+			
+			c.fecharConexao();
+			
+			return true;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+	
+	public boolean atualizar(Carro carro) {
+		Conexao c = Conexao.getInstancia();
+		Connection con = c.conectar();
+		
+		String query = "UPDATE carros SET modelo_carro = ? WHERE id_carro = ?";
+		
+		try {
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setString(1, carro.getModeloCarro());
+			ps.setInt(2, carro.getIdCarro());
+			
+			ps.executeUpdate();
+			
+			c.fecharConexao();
+			
+			return true;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 }
