@@ -48,7 +48,7 @@ public class CarroDAO {
 			// Enquanto tiver registro, faça esse loop
 			while(rs.next()) {
 				int idCarro = rs.getInt("id_carro");
-				String modelo = rs.getString("modelo");
+				String modelo = rs.getString("modelo_carro");
 				
 				// Cria um obj organizado de pessoa
 				Carro carro = new Carro();
@@ -105,7 +105,7 @@ public class CarroDAO {
 		Conexao c = Conexao.getInstancia();
 		Connection con = c.conectar();
 		
-		String query = "DELTE FROM carros WHERE id_carro = ?";
+		String query = "DELETE FROM carros WHERE id_carro = ?";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(query);
